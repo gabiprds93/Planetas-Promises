@@ -3,17 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import {searchItem, search} from './actions';
 import { connect } from 'redux-zero/react';
+import {Grid, Row, Col, Carousel, Navbar, Nav, NavItem, Media, ProgressBar, Image, OverlayTrigger, Tooltip} from 'react-bootstrap';
 
 const Item = ({item, index}) =>{ 
   return (
-		<div key={index} className="">
-			<div className="">
+		<Row key={index} className="items">
+      <Col >
+				<img src={item.image}/>
+			</Col>
+			<Col >
 				{item.pl_name}
-			</div>
-			<div className="">
+			</Col>
+			<Col >
         Discovered in {item.pl_disc} with {item.pl_telescope}
-			</div>
-		</div>
+			</Col>
+		</Row>
 	);
 }
 
@@ -32,15 +36,17 @@ const App = ({items, query}) =>
     })
   }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <ul className="App-intro">
-          {list}
-        </ul>
-      </div>
+      <Grid className="App">
+        <Row className="App-header">
+          <h1 className="App-title">Exoplanet Explorer</h1>
+          <h4>Learn more about planets around other starts!</h4>
+        </Row>
+        <Row>
+          <ul className="App-intro">
+            {list}
+          </ul>
+        </Row>
+      </Grid>
     );
   
 }
